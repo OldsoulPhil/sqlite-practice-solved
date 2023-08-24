@@ -12,8 +12,8 @@ CREATE TABLE dogs (
 
 CREATE TABLE favorites (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  user_id INTEGER NOT NULL,
-  dog_id INTEGER NOT NULL,
+  user_id INTEGER UNIQUE,
+  dog_id INTEGER UNIQUE,
   FOREIGN KEY(user_id) REFERENCES users(id),
   FOREIGN KEY(dog_id) REFERENCES dogs(id)
 );
@@ -37,9 +37,6 @@ INSERT INTO dogs (name)
 VALUES('Jefferey');
 
 INSERT INTO favorites (user_id, dog_id)
-VALUES (3, 1);
-
-INSERT INTO favorites (user_id, dog_id)
 VALUES (1, 1);
 
 INSERT INTO favorites (user_id, dog_id)
@@ -50,3 +47,6 @@ VALUES (1, 3);
 
 INSERT INTO favorites (user_id, dog_id)
 VALUES (2, 2);
+
+INSERT INTO favorites (user_id, dog_id)
+VALUES (3, 1);
